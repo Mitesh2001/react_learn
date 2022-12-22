@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import PortalFooter from './portal/footer/PortalFooter';
+import PortalNavbar from './portal/navbar/PortalNavbar';
 
-function App() {
+const App = () => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const checkUserToken = () => {
+    const userToken = localStorage.getItem('user-token');
+    if (!userToken || userToken === 'undefined') {
+      setIsLoggedIn(false);
+      navigate('/auth/login'); 
+    } else {
+      setIsLoggedIn(true)
+    }
+  };
+
+  useEffect(() => {
+    checkUserToken();
+  }, [isLoggedIn]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <PortalNavbar />
+        <Outlet/>
+      <PortalFooter/>
+    </>
+  )
 }
 
 export default App;
