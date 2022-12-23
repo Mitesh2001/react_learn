@@ -12,7 +12,7 @@ const App = () => {
     const userToken = localStorage.getItem('user-token');
     if (!userToken || userToken === 'undefined') {
       setIsLoggedIn(false);
-      navigate('/auth/login'); 
+      navigate('/auth'); 
     } else {
       setIsLoggedIn(true)
     }

@@ -4,10 +4,8 @@ import { Button, Col, Container, Form, FormGroup, FormLabel, Row } from 'react-b
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const loginApi = process.env.REACT_APP_API_URL;
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
-  const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
   const submitButton = useRef();
   const submitLoginForm = () => {

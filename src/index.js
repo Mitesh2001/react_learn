@@ -4,7 +4,6 @@ import App from './App';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Auth from './auth/Auth';
-import Login from './auth/login/Login';
 import ProtectedRoute from './util/ProtectedRoute';
 import Home from './portal/home/Home';
 
@@ -14,7 +13,6 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/auth' element={<Auth/>}>
-          <Route path='login' element = {<Login/>} />
         </Route>
         <Route path='/' element={<App/>}>
           <Route path='' element={

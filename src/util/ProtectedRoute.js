@@ -9,7 +9,7 @@ const ProtectedRoute = ({children}) => {
       const userToken = localStorage.getItem("user-token");
       if (!userToken || userToken === 'undefined') {
         setIsLoggedIn(false);
-        navigate("/auth/login");
+        navigate("/auth");
       } 
     setIsLoggedIn(true);  
     };
