@@ -4,21 +4,21 @@ import { Button, Col, Container, Form, FormGroup, FormLabel, Row } from 'react-b
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [userId, setUserId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const submitButton = useRef();
   const submitLoginForm = () => {
     submitButton.current.innerHTML = 'Please wait...';
     const data = {
-      user_id: userId,
-      otp : password
+      email: email,
+      password : password
     };
     axios
-      .post("http://findinsy.local/api/login", data)
+      .post("http://ocr_backend.local/api/login", data)
       .then((res) => {
         const data = res.data;
-        const token = data.user.token;
+        const token = data.token;
         if (!token) {
           alert("Unable to login. Please try again !");
           return;
@@ -39,13 +39,13 @@ const Login = () => {
           <Col md={6}>
             <Form id="loginForm" onSubmit={submitLoginForm}>
               <FormGroup className="mb-3">
-                <FormLabel htmlFor={"login-username"}>UserID</FormLabel>
+                <FormLabel htmlFor={"login-username"}>Email</FormLabel>
                 <input
-                  type={"number"}
+                  type={"email"}
                   className="form-control"
                   id={"user-id"}
-                  onChange={(e) => setUserId(e.target.value)}
-                  value={userId}
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                   required
                 />
               </FormGroup>
