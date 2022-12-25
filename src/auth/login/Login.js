@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <>
       <Container className="my-5">
-        <h2 className="fw-normal mb-5">Login To Auth Demo</h2>
+        <h2 className="fw-normal mb-5">Login</h2>
         <Row>
           <Col md={6}>
             <Form id="loginForm" onSubmit={submitLoginForm}>

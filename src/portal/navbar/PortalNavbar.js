@@ -18,7 +18,7 @@ const PortalNavbar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link className="btn btn-warning" onClick={logout}>
+              <Nav.Link className="btn btn-warning text-dark" onClick={logout}>
                 Logout
               </Nav.Link>
             </Nav>
